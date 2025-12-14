@@ -1,0 +1,26 @@
+# Defines the structure of the data model
+type Product {
+    id: ID!
+    name: String!
+    price: Float!
+}
+
+# Defines the input object for mutations
+input ProductInput {
+    id: ID
+    name: String!
+    price: Float!
+}
+
+# Queries (Read Operations)
+type Query {
+    products: [Product!]!
+    product(id: ID!): Product
+}
+
+# Mutations (Write Operations)
+type Mutation {
+    saveProduct(product: ProductInput!): Product!
+
+    deleteProduct(id: ID!): Boolean!
+}
